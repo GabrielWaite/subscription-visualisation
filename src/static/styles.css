@@ -1,0 +1,117 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+    background-color: #282727;
+    color: #eadcb3;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    border: #cc9120 2px solid;
+}
+p:hover{
+    background-color: #eadcb3;
+    color: #282727;
+    cursor: default;
+}
+
+.edit-button, .delete-button, .add-button {
+    background-color: #282727;
+    color: #eadcb3;
+    border: none;
+    cursor: pointer;
+    font-family: 'Courier New', Courier, monospace;
+        font-size: 18px;
+}
+
+.edit-button:hover, .delete-button:hover, .add-button:hover {
+    background-color: #eadcb3;
+    color: #282727;
+}
+
+/* content window */
+.content-window {
+    color: #eadcb3;
+    padding: 12px;
+    border-top: 4px double #cc9120;
+    justify-content: center;
+}
+
+.content-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    /* Total width: 20 + 50 + 15 + spacing */
+    /* width: fit-content; */
+}
+
+.content-item .popup-box {
+    visibility: hidden;
+    width: 300px;
+    background-color: #282727;
+    color: #eadcb3;
+    padding: 5px;
+    z-index: 3;
+    border: #cc9120 1px solid;
+    /* position: absolute; */
+    /* Position the popup absolutely relative to the parent-container */
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    
+    /* Use transform to center it perfectly regardless of its size
+    transform: translate(-50%, -50%); */
+}
+
+.content-item:hover{
+    /* color: #cc9120; */
+    background-color: #eadcb3;
+    color: #282727;
+    cursor: default;
+}
+
+.content-item:hover .popup-box {
+    visibility: visible;
+}
+
+/* Column 1: Website Name (20 chars) */
+.name {
+    width: 20ch;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Column 2: The Bar (50 chars + 2 for pipes) */
+.bar-container {
+    width: 52ch;
+    /* 50 chars + the two '|' symbols */
+    text-align: center;
+    display: flex;
+}
+
+/* Column 3: Price (15 chars) */
+.price {
+    width: 15ch;
+    text-align: right;
+}
+
+.bar-text {
+    letter-spacing: 0;
+    display: inline-block;
+}
+
+.add-dialog {
+  border: 1px solid rgba(255,255,255,0.2);
+  background: #282727;
+  color: white;
+  padding: 16px;
+  max-width: 400px;
+}
+
+input {
+  background-color: #282727;
+  border: none;
+}
+input:focus {
+    background-color: yellow;
+}

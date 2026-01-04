@@ -1,0 +1,211 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: DejaVu Sans Mono, monospace;
+    font-size: 12px;
+    line-height: 1.6;
+    color: #eadcb3;
+    background: #282727;
+    /* background: #dadada;
+    background-image: linear-gradient(45deg, #28272730 25%, transparent 25%), linear-gradient(-45deg, #28272730 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #28272730 75%), linear-gradient(-45deg, transparent 75%, #28272730 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px; */
+}
+
+#wrapper {
+    width: 750px;
+    height: 1000px;
+    margin: -50px auto 0 auto;
+    background: #282727;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+header {
+    background-color: #282727;
+    color: #eadcb3;
+    text-align: center;
+}
+
+main {
+    width: 98%;
+    margin: 0 auto;
+    border: #eadcb3 1px solid;;
+    padding: 10px;
+}
+
+.edit-button, .delete-button, .add-button, .submit-button {
+    background-color: #eadcb3;
+    color: #282727;
+    border: none;
+    cursor: pointer;
+    font-family: DejaVu Sans Mono, monospace;
+    font-size: 12px;
+}
+
+.edit-button:hover, .delete-button:hover, .add-button:hover {
+    background-color: #282727;
+    color: #eadcb3;
+}
+
+.content-item {
+    display: flex;
+    align-items: center;
+    /* Total width: 20 + 50 + 15 + spacing */
+    /* width: fit-content; */
+}
+
+.content-wrapper {
+    display: flex;
+    align-items: center;
+    /* Total width: 20 + 50 + 15 + spacing */
+    /* width: fit-content; */
+}
+
+.content-item-left {
+    flex: 1;
+    padding: 10px;
+    border-right: #eadcb3 2px dashed;
+}
+
+.content-item-right {
+    flex: 1;
+    padding: 10px
+}
+
+.content-item-left-data {
+    display: flex;
+}
+
+.summary-line {
+    display: grid;
+    grid-template-columns: 16ch 5px 1fr;
+    gap: 5px;
+}
+
+.final-summary-line {
+    display: grid;
+    grid-template-columns: 21ch 5px 1fr;
+    gap: 5px;
+}
+
+/* Adding the colon via CSS so it stays aligned */
+.summary-line span:first-child::after, .final-summary-line span:first-child::after {
+    content: ":";
+    float: right;
+}
+
+.summary-line span:last-child, .final-summary-line span:last-child {
+    white-space: nowrap;
+}
+
+.content-item:hover, .summary-line:hover, .content-item-left-data:hover{
+    /* color: #cc9120; */
+    background-color: #eadcb3;
+    color: #282727;
+    cursor: default;
+}
+
+.final-summary-line:hover {
+    /* color: #cc9120; */
+    background-color: rgb(152, 98, 209);
+    color: #282727;
+    cursor: default;
+}
+
+/* Column 1: Website Name (20 chars) */
+.name {
+    width: 20ch;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* background-color: red; */
+}
+
+/* Column 2: Price (15 chars) */
+.price {
+    width: 15ch;
+    text-align: right;
+    /* background-color: blue; */
+}
+
+/* Column 3: Renewal Date (10 chars) */
+.renewal-date {
+    width: 20ch;
+    text-align: right;
+    /* background-color: green; */
+}
+
+/* Column 4: The Bar (50 chars + 2 for pipes) */
+.bar-container {
+    width: 47ch;
+    /* 40 chars + the two '|' symbols */
+    text-align: center;
+}
+
+.kb-button-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;          
+}
+
+
+.kb-button-container p {
+    margin: 0;
+}
+
+
+.name-left {
+    width: 12ch;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.price-left {
+    width: 10ch;
+    text-align: right;
+}
+
+.bar-container-left {
+    width: 30ch;
+    /* 40 chars + the two '|' symbols */
+    text-align: right;
+    /* display: flex; */
+}
+
+.add-dialog {
+  border: 1px solid rgba(255,255,255,0.2);
+  background: #282727;
+  color: #eadcb3;
+  padding: 16px;
+  width: 400px;
+  /* max-width: 500px; */
+}
+
+input {
+  background-color: #eadcb3;
+  border: none;
+  display: block;
+}
+input:focus {
+    font-family: DejaVu Sans Mono, monospace;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; 
+}
+
+.form-group label {
+  margin-right: 10px; 
+  width: 15ch;
+}
+
+.form-group input {
+  flex: 1;
+}

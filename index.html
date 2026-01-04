@@ -4,99 +4,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Subscription Visualiser</title>
-    <link rel="icon" type="image/x-icon" href="static/favicon.ico">
-    <link rel="stylesheet" href="src/static/styles.css">
+    <link rel="icon" type="image/x-icon" href="src/assests/favicon.ico">
+    <link rel="stylesheet" href="src/css/styles.css">
 </head>
 <body>
-    <header>
-        <h2>Subscription Visualiser</h2>
-    </header>
-    <main>
-        <div class="content-window">
-            <!-- Add a header for each column -->
+    <div id="wrapper">
+        <header>
+            <h2>Subscription Visualiser</h2>
+        </header>
+        <main>
             <div class="content-item">
-                <div class="name"><strong>Name</strong></div>
-                <div class="bar-container"><strong>Relative Price</strong></div>
-                <div class="price"><strong>Price (Monthly)</strong></div>
+                <div class="name"><strong>--Name</strong></div>
+                <div class="price"><strong>--Price</strong></div>
+                <div class="renewal-date"><strong>--Next Renewal</strong></div>
+                <div class="bar-container"><strong>--Relative Price</strong></div>
             </div>
+            <hr style="border: #eadcb3 1px dashed;">
             <div id="list-container"></div>
-            <button class="add-button">[Add Subscription]</button>
-        </div>
-        <div class="content-window">
-            <p>>Weekly Spending : <span id="weekly-spending" style="color: rgb(152, 98, 209);"></span></p>
-            <p>>Monthly Spending: <span id="monthly-spending" style="color: rgb(209, 120, 98);"></span></p>
-            <p>>Yearly Spending : <span id="yearly-spending" style="color: rgb(209, 98, 98);"></span></p>
-        </div>
+            <div class="kb-button-container">
+                <button class="add-button">Cmd+H</button>
+                <p>add subscription</p>
+    
+                <button class="add-button">Cmd+K</button>
+                <p>delete subscription</p>
+
+                <button class="add-button">Cmd+J</button>
+                <p>edit subscription</p>
+            </div>
+             <hr style="border: #eadcb3 1px dashed;">
+             <div class="content-wrapper">
+                <div class="content-item-left">
+                    <div><strong id="summary-name-left">--Breakdown per category</strong></div>
+                    <div id="category-breakdown-container"></div>
+                <hr style="border: #eadcb3 1px dashed;">
+                    <div><strong id="summary-name-left">--Percentage of Monthly Spend</strong></div>
+                    <div id="monthly-spending-breakdown-container"></div>
+                </div>
+                <div class="content-item-right" id="summary-panel-right">
+                    <div><strong id="summary-name-right">--Summary</strong></div>
+                    <div class="summary-line"><span>>Weekly price</span><span id="s-weekly"></span></div>
+                    <div class="summary-line"><span>>Monthly price</span><span id="s-monthly"></span></div>
+                    <div class="summary-line"><span>>Yearly price</span><span id="s-yearly"></span></div>
+                    <div class="summary-line"><span>>Cycle</span><span id="s-cycle"></span></div>
+                    <div class="summary-line"><span>>Next renewal</span><span id="s-renew"></span></div>
+                    <div class="summary-line"><span>>Email used</span><span id="s-email"></span></div>
+                    <div class="summary-line"><span>>Shared with</span><span id="s-shared"></span></div>
+                </div>
+             </div>
+             <hr style="border: #eadcb3 1px dashed;">
+             <div class="final-summary">
+                <strong>--Final Summary</strong>
+                <div class="final-summary-line"><span>>Weekly Spending</span><span id="weekly-spending"></span></div>
+                <div class="final-summary-line"><span>>Monthly Spending</span><span id="monthly-spending"></span></div>
+                <div class="final-summary-line"><span>>Yearly Spending</span><span id="yearly-spending"></span></div>
+                <div class="final-summary-line"><span>>Largest Spending</span><span id="largest-spending"></span></div>
+                <div class="final-summary-line"><span>>Category Breakdown</span><span id="category-breakdown"></span></div>
+                <div class="final-summary-line"><span>>Next Renewal</span><span id="next-renewal"></span></div>
+             </div>
+
         <dialog open id="add-dialog" class="add-dialog">
             <form id="add-form" method="dialog" class="add-form">
-                <h3>[Add Subscription]</h3>
-
-                <label>>Name &nbsp;&nbsp;   :<input name="name" required></label>
-                <label>>Website :<input name="website" placeholder="optional"></label>
-                <label>>Price &nbsp;  :<input name="price" required inputmode="decimal" placeholder="e.g. 15.00"></label>
-                <label>Cycle &nbsp;  :<input name="cycle" placeholder="e.g. Monthly"></label>
-                <label>Next renewal date <input name="renewal" type="date"></label>
-                <label>Email used <input name="email"></label>
-                <label>Shared with <input name="shared" placeholder="comma-separated"></label>
+                <strong>--Add Subscription</strong>
+                <br>
+                <div class="form-group">
+                    <label>>Name :</label>
+                    <input name="name" required>
+                </div>
+                <div class="form-group">
+                    <label>>Category :</label>
+                    <input name="category" required>
+                </div>
+                <div class="form-group">
+                    <label>>Website :</label>
+                    <input name="website" required>
+                </div>
+                <div class="form-group">
+                    <label>>Price &nbsp;  :</label>
+                    <input name="price" required inputmode="decimal">  
+                </div>
+                <div class="form-group">
+                    <label>>Cycle &nbsp;  :</label>
+                    <input name="cycle" required>
+                </div>
+                <div class="form-group">
+                    <label>>Renewal date :</label>
+                    <input name="renewal" required>
+                </div>
+                <div class="form-group">
+                    <label>>Email used :</label>
+                    <input name="email" required>
+                </div>
+                <div class="form-group">
+                    <label>>Shared with :</label>
+                    <input name="shared" required>
+                </div>
+                <input type="submit" class="submit-button">
             </form>
         </dialog>
-    </main>
-
-    <script>
-        const data = [
-            { name: "Netflix", price: 15, percent: 100, email: "netflix@example.com", share: ["Alice", "Bob"], renew: "14th of month" },
-            { name: "Hulu", price: 12, percent: 80, email: "hulu@example.com", share: ["Bob"], renew: "20th of month" },
-            { name: "Disney+", price: 10, percent: 67, email: "disney@example.com", share: ["Charlie", "Eve"], renew: "25th of month" },
-            { name: "Prime Video", price: 8.99, percent: 60, email: "prime@example.com", share: ["David"], renew: "30th of month" }
-        ];
-
-        const BAR_TOTAL_LENGTH = 50;
-        // const FULL_BLOCK = '█';
-        // const EMPTY_BLOCK = '░';
-        const FULL_BLOCK = '=';
-        const EMPTY_BLOCK = '-';
-
-        function renderList() {
-            const container = document.getElementById('list-container');
-            
-            container.innerHTML = data.map(item => {
-                // Calculate blocks
-                const numFull = Math.round((item.percent / 100) * BAR_TOTAL_LENGTH);
-                const numEmpty = BAR_TOTAL_LENGTH - numFull;
-                const barString = FULL_BLOCK.repeat(numFull) + EMPTY_BLOCK.repeat(numEmpty);
-
-                return `
-                    <div class="content-item">
-                        <div class="name">${item.name}</div>
-                        <div class="bar-container">|${barString}|</div>
-                        <div class="price">$${item.price}</div>
-                        <span class="popup-box">
-                            --${item.name}--<br>
-                            >email: ${item.email}<br>
-                            >shared with: ${item.share.join(", ")}<br>
-                            >renewal date: ${item.renew}
-                            <div>
-                                <button class="edit-button">[Edit]</button>
-                                <button class="delete-button">[Delete]</button>
-                            </div>
-                        </span>
-                    </div>
-                `;
-            }).join('');
-        }
-
-        renderList();
-
-        // compute the weekly, monthly and yearly spending
-        const weeklySpending = data.reduce((sum, item) => sum + item.price, 0) / 4;
-        const monthlySpending = data.reduce((sum, item) => sum + item.price, 0);
-        const yearlySpending = monthlySpending * 12;
-
-        // update the DOM
-        document.getElementById('weekly-spending').innerText = `$${weeklySpending.toFixed(2)}`;
-        document.getElementById('monthly-spending').innerText = `$${monthlySpending.toFixed(2)}`;
-        document.getElementById('yearly-spending').innerText = `$${yearlySpending.toFixed(2)}`;
-
-    </script>
+        <script src="src/js/script.js"></script>
+        </main>
+    </div>
 </body>
 </html>

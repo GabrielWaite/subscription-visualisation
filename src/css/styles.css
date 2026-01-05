@@ -140,10 +140,9 @@ main {
 }
 
 /* Column 4: The Bar (50 chars + 2 for pipes) */
-.bar-container {
-    width: 47ch;
-    /* 40 chars + the two '|' symbols */
-    text-align: center;
+.category {
+    width: 20ch;
+    text-align: right;
 }
 
 .kb-button-container {

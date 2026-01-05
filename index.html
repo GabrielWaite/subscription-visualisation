@@ -17,19 +17,25 @@
                 <div class="name"><strong>--Name</strong></div>
                 <div class="price"><strong>--Price</strong></div>
                 <div class="renewal-date"><strong>--Next Renewal</strong></div>
-                <div class="bar-container"><strong>--Relative Price</strong></div>
+                <div class="category"><strong>--Category</strong></div>
             </div>
             <hr style="border: #eadcb3 1px dashed;">
             <div id="list-container"></div>
             <div class="kb-button-container">
                 <button class="add-button">Cmd+H</button>
-                <p>add subscription</p>
+                <p>add</p>
     
                 <button class="add-button">Cmd+K</button>
-                <p>delete subscription</p>
+                <p>delete</p>
 
                 <button class="add-button">Cmd+J</button>
-                <p>edit subscription</p>
+                <p>edit</p>
+
+                <button class="add-button">Cmd+E</button>
+                <p>export</p>
+
+                <button class="add-button">Cmd+I</button>
+                <p>import</p>
             </div>
              <hr style="border: #eadcb3 1px dashed;">
              <div class="content-wrapper">
@@ -49,6 +55,7 @@
                     <div class="summary-line"><span>>Next renewal</span><span id="s-renew"></span></div>
                     <div class="summary-line"><span>>Email used</span><span id="s-email"></span></div>
                     <div class="summary-line"><span>>Shared with</span><span id="s-shared"></span></div>
+                    <div class="summary-line"><span>>Category</span><span id="s-category"></span></div>
                 </div>
              </div>
              <hr style="border: #eadcb3 1px dashed;">
@@ -61,8 +68,8 @@
                 <div class="final-summary-line"><span>>Category Breakdown</span><span id="category-breakdown"></span></div>
                 <div class="final-summary-line"><span>>Next Renewal</span><span id="next-renewal"></span></div>
              </div>
-
-        <dialog open id="add-dialog" class="add-dialog">
+<!-- Hide for now! -->
+        <!-- <dialog open id="add-dialog" class="add-dialog">
             <form id="add-form" method="dialog" class="add-form">
                 <strong>--Add Subscription</strong>
                 <br>
@@ -100,8 +107,8 @@
                 </div>
                 <input type="submit" class="submit-button">
             </form>
-        </dialog>
-        <script src="src/js/script.js"></script>
+        </dialog> -->
+        <script type="module" src="src/js/script.js"></script>
         </main>
     </div>
 </body>

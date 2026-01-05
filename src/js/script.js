@@ -1,53 +1,10 @@
-// Generate some sample data to work with
-const data = [
-  {
-    name: "Netflix",
-    price: 15,
-    cycle: "monthly",
-    email: "netflix@example.com",
-    share: "Alice, Bob",
-    renew: "14-09",
-    percent: NaN, // to be computed later
-    category: "Streaming",
-    mprice: NaN // to be computed later
-  },
-  {
-    name: "Hulu",
-    price: 12,
-    cycle: "monthly",
-    email: "hulu@example.com",
-    share: "Bob",
-    renew: "20-11",
-    percent: NaN, // to be computed later
-    category: "Streaming",
-    mprice: NaN // to be computed later
-  },
-  {
-    name: "Disney+",
-    price: 10,
-    cycle: "monthly",
-    email: "disney@example.com",
-    share: "Charlie, Eve",
-    renew: "25-03",
-    percent: NaN, // to be computed later
-    category: "Streaming",
-    mprice: NaN // to be computed later
-  },
-  {
-    name: "Phone Plan",
-    price: 8.99,
-    cycle: "monthly",
-    email: "phone@example.com",
-    share: NaN,
-    renew: "02-01",
-    percent: NaN, // to be computed later
-    category: "Lifestyle",
-    mprice: NaN // to be computed later
-  },
-];
+// Import the sample data from ~src/assets/sample-data.json
+import data from "../assets/sample-data.json" with { type: "json" };
+// Use 'with' and not 'assert' - using 'assert' raises "Uncaught SyntaxError: Unexpected identifier 'assert'" in the DevTools > Console log when going live.
+
 
 // --- Constants ---
-const RELATIVE_PRICE_BAR_LENGTH = 43; // The length of the relative price bar
+// const RELATIVE_PRICE_BAR_LENGTH = 43; // The length of the relative price bar
 const LEFT_BAR_LENGTH = 28; // The length of the relative price bar
 const FULL_BLOCK = "#";
 const EMPTY_BLOCK = "-";
@@ -112,24 +69,32 @@ const { weeklySpending, monthlySpending, yearlySpending } = computeSpendings();
 // Compute largest spending percentage (percent of monthly spending)
 const maxPricePercent = Math.max(...data.map(item => (item.mprice / monthlySpending) * 100));
 
+// Define the category colour
+function getCategoryColour(category) {
+  switch (category) {
+    case "Streaming": return "rgb(152, 98, 209)";
+    case "Lifestyle": return "rgb(209, 98, 98)";
+    case "Software":  return "rgb(98, 117, 209)";
+    case "Education": return "rgb(209, 98, 159)";
+    case "Entertainment": return "rgb(98, 209, 102)";
+    default:          return "#eadcb3";
+  }
+}
 
 // --- Render Subscription List ---
 function renderSubscriptionList() {
   const container = document.getElementById("list-container"); // The container to hold the list
 
   container.innerHTML = data.map((item, index) => {
-    // Calculate blocks for relative price bar
-    const numFull = Math.round((item.percent / 100) * RELATIVE_PRICE_BAR_LENGTH);
-    const numEmpty = RELATIVE_PRICE_BAR_LENGTH - numFull;
-    const barString = FULL_BLOCK.repeat(numFull) + EMPTY_BLOCK.repeat(numEmpty);
-
-      // Add data-index attribute for hover functionality
+    // Categories - rgb(x,y,z): Streaming - rgb(152, 98, 209), Lifestyle - rgb(209, 98, 98), Software - rgb(98, 117, 209), Education - rgb(98, 209, 102), Entertainment - rgb(209, 98, 159)
+    const categoryColour = getCategoryColour(item.category);
+    // Add data-index attribute for hover functionality
       return `
                     <div class="content-item" data-index="${index}">
                         <div class="name">${item.name}</div>
                         <div class="price">$${item.price}</div>
                         <div class="renewal-date">${item.renew}</div>
-                        <div class="bar-container">|${barString}|</div>
+                        <div class="category" style="color: ${categoryColour}">${item.category}</div>
                     </div>
                 `;
     })
@@ -153,6 +118,7 @@ function updateSummary(item) {
     document.getElementById('s-renew').innerText = `${item.renew}`;
     document.getElementById('s-email').innerText = item.email;
     document.getElementById('s-shared').innerText = item.share;
+    document.getElementById('s-category').innerText = item.category;
 }
 
 renderSubscriptionList(); // Call the function to render the list

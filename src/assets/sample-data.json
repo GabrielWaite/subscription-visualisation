@@ -1,0 +1,68 @@
+[
+  {
+    "name": "Netflix",
+    "price": 15,
+    "cycle": "monthly",
+    "email": "netflix@example.com",
+    "share": "Alice, Bob",
+    "renew": "14-09",
+    "percent": null,
+    "category": "Streaming",
+    "mprice": null
+  },
+  {
+    "name": "Hulu",
+    "price": 12,
+    "cycle": "monthly",
+    "email": "hulu@example.com",
+    "share": "Bob",
+    "renew": "20-11",
+    "percent": null,
+    "category": "Streaming",
+    "mprice": null
+  },
+  {
+    "name": "Spotify",
+    "price": 10,
+    "cycle": "monthly",
+    "email": "spotify@example.com",
+    "share": "Alice",
+    "renew": "01-10",
+    "percent": null,
+    "category": "Entertainment",
+    "mprice": null
+  },
+  {
+    "name": "Headspace",
+    "price": 12,
+    "cycle": "monthly",
+    "email": "headspace@example.com",
+    "share": "Bob",
+    "renew": "15-10",
+    "percent": null,
+    "category": "Lifestyle",
+    "mprice": null
+  },
+  {
+    "name": "Adobe Creative Cloud",
+    "price": 52,
+    "cycle": "monthly",
+    "email": "adobe@example.com",
+    "share": "Alice, Bob",
+    "renew": "30-09",
+    "percent": null,
+    "category": "Software",
+    "mprice": null
+  },
+  {
+    "name": "Coursera",
+    "price": 39,
+    "cycle": "monthly",
+    "email": "coursera@example.com",
+    "share": "Alice",
+    "renew": "10-10",
+    "percent": null,
+    "category": "Education",
+    "mprice": null
+  }
+]

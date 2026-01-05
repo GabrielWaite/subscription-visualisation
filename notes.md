@@ -14,3 +14,6 @@ We also add a category focused metric, showing for the total monthly spending wh
 + split the js file into smaller chunks for ease of understanding and fixing
 + Fix the dialogue and form section to appear when buttons pressed
 + Find a way to add/remove/edit subscription information
+
++ Allow for the creation of data via a file (likely JSON)
++ Allow for the saving of ones JSON data file (for ease of future upload)

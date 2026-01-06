@@ -17,3 +17,6 @@ We also add a category focused metric, showing for the total monthly spending wh
 
 + Allow for the creation of data via a file (likely JSON)
 + Allow for the saving of ones JSON data file (for ease of future upload)
+
++ Find a nice way to display the upcoming payments - the date information has some fiddly logic.
++ Perhaps we need functions to handle weekly, monthly and yearly cases.

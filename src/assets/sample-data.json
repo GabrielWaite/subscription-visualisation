@@ -5,8 +5,7 @@
     "cycle": "monthly",
     "email": "netflix@example.com",
     "share": "Alice, Bob",
-    "renew": "14-09",
-    "percent": null,
+    "renew": "14",
     "category": "Streaming",
     "mprice": null
   },
@@ -16,8 +15,7 @@
     "cycle": "monthly",
     "email": "hulu@example.com",
     "share": "Bob",
-    "renew": "20-11",
-    "percent": null,
+    "renew": "20",
     "category": "Streaming",
     "mprice": null
   },
@@ -27,8 +25,7 @@
     "cycle": "monthly",
     "email": "spotify@example.com",
     "share": "Alice",
-    "renew": "01-10",
-    "percent": null,
+    "renew": "01",
     "category": "Entertainment",
     "mprice": null
   },
@@ -38,8 +35,7 @@
     "cycle": "monthly",
     "email": "headspace@example.com",
     "share": "Bob",
-    "renew": "15-10",
-    "percent": null,
+    "renew": "15",
     "category": "Lifestyle",
     "mprice": null
   },
@@ -49,8 +45,7 @@
     "cycle": "monthly",
     "email": "adobe@example.com",
     "share": "Alice, Bob",
-    "renew": "30-09",
-    "percent": null,
+    "renew": "30",
     "category": "Software",
     "mprice": null
   },
@@ -60,8 +55,7 @@
     "cycle": "monthly",
     "email": "coursera@example.com",
     "share": "Alice",
-    "renew": "10-10",
-    "percent": null,
+    "renew": "10",
     "category": "Education",
     "mprice": null
   }

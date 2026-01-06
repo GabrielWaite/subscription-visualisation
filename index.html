@@ -13,6 +13,15 @@
             <h2>Subscription Visualiser</h2>
         </header>
         <main>
+            <!-- <div class="next-renewal-info">
+                Next Renewal: <span id="next-renewal-name"></span> (<span id="next-renewal-date"></span>) --<span id="next-renewal-price" style="color: red;"></span>
+            </div> -->
+            <!-- <div class="next-renewal-info"><span>Next renewal</span><span id="next-renewal-name"></span><span id="next-renewal-date"></span><span id="next-renewal-price" style="color: red;"></span></div>
+       
+            <div class="monthly-renewal-info">
+                <span id="monthly-renewal-number"></span> monthly renewals: <span id="monthly-renewal-names"></span> --<span id="monthly-renewal-total" style="color: red;"></span>
+            </div> -->
+            <hr style="border: #eadcb3 1px dashed;">
             <div class="content-item">
                 <div class="name"><strong>--Name</strong></div>
                 <div class="price"><strong>--Price</strong></div>
@@ -64,7 +73,7 @@
                 <div class="final-summary-line"><span>>Weekly Spending</span><span id="weekly-spending"></span></div>
                 <div class="final-summary-line"><span>>Monthly Spending</span><span id="monthly-spending"></span></div>
                 <div class="final-summary-line"><span>>Yearly Spending</span><span id="yearly-spending"></span></div>
-                <div class="final-summary-line"><span>>Largest Spending</span><span id="largest-spending"></span></div>
+                <!-- <div class="final-summary-line"><span>>Largest Spending</span><span id="largest-spending"></span></div> -->
                 <div class="final-summary-line"><span>>Category Breakdown</span><span id="category-breakdown"></span></div>
                 <div class="final-summary-line"><span>>Next Renewal</span><span id="next-renewal"></span></div>
              </div>
@@ -110,6 +119,9 @@
         </dialog> -->
         <script type="module" src="src/js/main.js"></script>
         </main>
+        <footer>
+            <p>Subscription Visualisation | Gabriel Waite | Today : <span id="footer-date">d-m-y</span></p>
+        </footer>
     </div>
 </body>
 </html>

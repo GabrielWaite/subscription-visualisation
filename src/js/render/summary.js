@@ -15,5 +15,4 @@ export function renderFinalSummary({ weeklySpending, monthlySpending, yearlySpen
   document.getElementById("weekly-spending").innerText = `$${weeklySpending.toFixed(2)}`;
   document.getElementById("monthly-spending").innerText = `$${monthlySpending.toFixed(2)}`;
   document.getElementById("yearly-spending").innerText = `$${yearlySpending.toFixed(2)}`;
-  document.getElementById("largest-spending").innerText = `${maxPricePercent.toFixed(1)}%`;
 }
